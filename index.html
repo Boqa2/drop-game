@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drop game</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen">
+          <video
+            id="video"
+            class="video"
+            src="assets/15_HelpVertical_UPDR255086AH_DM.mp4"
+          ></video>
+          <div id="popup" class="overlay">
+            <div class="masege">
+              <img src="assets/TEXT.png" alt="" />
+              <div class="buttons">
+                <div id="decline" class="btn">Decline</div>
+                <span class="line"></span>
+                <div id="accept" class="btn">Accept</div>
+              </div>
+            </div>
+          </div>
+          <div id="starts" class="game hidden">
+            <div id="firstEle" class="start-game">
+              <div class="content">
+                <p class="note">Find all the words before the time runs out!</p>
+                <div id="startGame" class="">play now</div>
+                <div>
+                  <div class="logo">Drop</div>
+                  <span class="context"
+                    >only in theaters <strong>APRIL 11</strong>
+                  </span>
+                </div>
+              </div>
+              <div class="image">
+                <div class="container-img">
+                  <div>
+                    <img
+                      class="imgs"
+                      width="13px"
+                      height="5px"
+                      src="assets/DRP_PlatinumDunes_2024_trans_Grad_CG2.png"
+                      alt=""
+                    />
+                    <img
+                      class="imgs"
+                      width="9px"
+                      height="8px"
+                      src="assets/DRP_Blumhouse_BHLogo_CG2.png"
+                      alt=""
+                    />
+                    <img
+                      class="imgs"
+                      width="23px"
+                      height="10px"
+                      src="assets/DRP_PG13Rating_CG2.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="texts">
+                    <p>
+                      Written by <strong>JULLIAN JACOBS</strong> &
+                      <strong>CHRIS ROACH</strong>
+                    </p>
+                    <p>Directed by <strong>CHRISTOPHER LANDON</strong></p>
+                  </div>
+                  <img
+                    src="assets/DRP_UNI_Copyright2024_CG2.png"
+                    width="34px"
+                    height="10px"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div id="secondEle" class="start-game">
+              <div class="content-game">
+                <div><span id="score" class="score">0</span>/5</div>
+                <div>
+                  <ul id="textFor"></ul>
+                </div>
+                <div style="font-size: 37px">
+                  :<span id="time" class="times">20</span>
+                </div>
+              </div>
+              <div class="bg-tel">
+                <div class="display-game">
+                  <div id="place" class="game-grid"></div>
+                </div>
+              </div>
+            </div>
+            <div id="therdEle" class="end-game hiddens">
+              <div class="content">
+                <div class="content-again">
+                  <div class="texts1">
+                    <p id="forText">We're one step closer to finding the killer</p>
+                  </div>
+                  <div class="buttons1">
+                    <div style="color: black">
+                      SCORE<span
+                        style="
+                          font-size: 50px;
+                          color: black;
+                          font-family: sans-serif;
+                        "
+                        >:</span
+                      >
+                      <span id="score" class="scores">0</span>
+                    </div>
+                    <div id="restartGame" class="">play again</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="logos-section">
+                    <div class="logo">Drop</div>
+                    <a href="https://www.youtube.com/watch?v=bs_nFwh5eJw" target="_blank" >learn more</a>
+                  </div>
+                  <span class="context"
+                    >only in theaters <strong>APRIL 11</strong>
+                  </span>
+                </div>
+              </div>
+              <div class="image">
+                <div class="container-img">
+                  <div>
+                    <img
+                      class="imgs"
+                      width="13px"
+                      height="5px"
+                      src="assets/DRP_PlatinumDunes_2024_trans_Grad_CG2.png"
+                      alt=""
+                    />
+                    <img
+                      class="imgs"
+                      width="9px"
+                      height="8px"
+                      src="assets/DRP_Blumhouse_BHLogo_CG2.png"
+                      alt=""
+                    />
+                    <img
+                      class="imgs"
+                      width="23px"
+                      height="10px"
+                      src="assets/DRP_PG13Rating_CG2.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="texts">
+                    <p>
+                      Written by <strong>JULLIAN JACOBS</strong> &
+                      <strong>CHRIS ROACH</strong>
+                    </p>
+                    <p>Directed by <strong>CHRISTOPHER LANDON</strong></p>
+                  </div>
+                  <img
+                    src="assets/DRP_UNI_Copyright2024_CG2.png"
+                    width="34px"
+                    height="10px"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
