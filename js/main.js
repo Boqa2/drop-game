@@ -239,7 +239,7 @@ function checkWord() {
 array.forEach((elm) => {
   textFor.innerHTML += `<li id="words" class="">${elm}</li>`;
 });
-let time = 23;
+let time = 1;
 let gameInterval;
 
 function startGame() {

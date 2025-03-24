@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Big Shoulders", sans-serif;
 }
 body {
   user-select: none;
@@ -148,15 +149,11 @@ body {
 }
 
 .fadeIn {
-  transform: translateY(-480px);
+  transform: translateY(-78%);
 }
 .fadeOut {
   transform: translateY(0);
 }
-.fadeIns {
-  transform: translateY(565px);
-}
-
 .content {
   display: flex;
   height: 70%;
@@ -189,12 +186,12 @@ body {
   width: 60%;
   color: rgb(186, 37, 24);
   font-family: "Big Shoulders", sans-serif;
-  font-size: 35px;
+  font-size: 34px;
   height: 60px;
-  padding-top: 3px;
   font-weight: 900;
   text-transform: uppercase;
   cursor: pointer;
+  padding-top: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -238,12 +235,12 @@ body {
 
 ul {
   display: flex;
-  width: 150px;
+  width: 130px;
   flex-wrap: wrap;
   list-style: none;
   line-height: 0.8;
   gap: 10px;
-  font-size: 10px;
+  font-size: 16px;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -389,6 +386,6 @@ ul {
 .context:nth-child(2) {
   font-size: 16px;
 }
-.image:nth-last-child(2){
-display: none;
+.image:nth-last-child(2) {
+  display: none;
 }
