@@ -25,8 +25,6 @@ video.addEventListener("canplaythrough", () => {
   if (!hasVideoEnded) {
     video.play();
   }
-});
-video.addEventListener("play", () => {
   if (!hasPopupShown) {
     isSoundEnabled = !video.muted && video.volume > 0;
 
