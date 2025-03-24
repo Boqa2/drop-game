@@ -36,9 +36,9 @@ video.addEventListener("play", () => {
       if (popup.classList.contains("show")) {
         setTimeout(() => {
           popup.classList.remove("show");
-          video.volume = 1;
           video.muted = false;
           video.play();
+          video.volume = 1;
         }, 5000);
       }
     }, 4400);
@@ -77,7 +77,7 @@ video.addEventListener("ended", () => {
 });
 
 const array = ["poison", "killer", "meme", "drop", "phone"];
-const gridSize = 8;
+const gridSize = 7;
 const grid = Array.from({ length: gridSize }, () => Array(gridSize).fill(""));
 const directions = [
   { dx: 1, dy: 0 }, // Горизонтально вправо
@@ -89,6 +89,15 @@ const directions = [
   { dx: 1, dy: -1 }, // Диагональ вверх вправо
   { dx: -1, dy: 1 }, // Диагональ вниз влево
 ];
+function resize() {
+  const height = window.innerHeight;
+  if (height < 400) {
+    video.src = "assets/15_Help_UPDR251511XH_DM.mp4";
+  } else {
+    video.src = "assets/15_HelpVertical_UPDR255086AH_DM.mp4";
+  }
+}
+resize();
 
 function placeWords() {
   array.forEach((word) => {
@@ -232,7 +241,7 @@ function checkWord() {
 array.forEach((elm) => {
   textFor.innerHTML += `<li id="words" class="">${elm}</li>`;
 });
-let time = 20;
+let time = 23;
 let gameInterval;
 
 function startGame() {
@@ -278,14 +287,14 @@ gameStart.addEventListener("click", startGame);
 restartGame.addEventListener("click", restart);
 
 function endGame(win) {
-    const text = document.querySelector('#forText')
-    if(!win){
-        text.textContent = ""
-        text.textContent += "We're one step closer to finding the killer"
-    }else{
-        text.textContent = ""
-        text.textContent += "We're finding the killer"
-    }
+  const text = document.querySelector("#forText");
+  if (!win) {
+    text.textContent = "";
+    text.textContent += "We're one step closer to finding the killer";
+  } else {
+    text.textContent = "";
+    text.textContent += "We're finding the killer";
+  }
   clearInterval(gameInterval);
   setTimeout(() => {
     first.classList.add("hidden");

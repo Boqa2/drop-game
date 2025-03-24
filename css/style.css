@@ -6,24 +6,20 @@
 }
 body {
   user-select: none;
-}
-
-.container {
-  width: 100%;
-  height: 100vh;
-  margin: auto;
-  padding: 20px 0;
-  background: gray;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0;
+  height: 100vh;
+  background-color: #222;
 }
+
 .phone {
   border-radius: 60px;
-  width: 380px;
-  height: 760px;
+  width: 340px;
+  height: 680px;
   border: 10px solid black;
-  background: rgb(45, 43, 43);
+  background: rgb(90, 90, 90);
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   position: fixed;
@@ -50,7 +46,7 @@ body {
   border-radius: 15px;
 }
 .video {
-  height: 690px;
+  height: 600px;
   cursor: default;
   position: relative;
   left: -5px;
@@ -72,8 +68,8 @@ body {
   transition: transform 0.1 ease;
 }
 .masege {
-  width: 320px;
-  height: 350px;
+  width: 290px;
+  height: 300px;
   position: relative;
   cursor: pointer;
 }
@@ -87,7 +83,7 @@ body {
 }
 
 .buttons {
-  width: 320px;
+  width: 290px;
   height: 36px;
   display: flex;
   background: rgba(225, 232, 234, 255);
@@ -128,18 +124,17 @@ body {
   position: absolute;
   top: 0;
   transform: scale(1);
-  padding-top: 60px;
+  padding-top: 45px;
   transition: all 0.5s ease;
 }
-
 .hidden {
   transform: scale(0);
 }
 .note {
   font-family: "Big Shoulders", sans-serif;
-  width: 320px;
+  width: 280px;
   text-transform: uppercase;
-  font-size: 40px;
+  font-size: 35px;
   font-weight: 700;
 }
 
@@ -153,7 +148,7 @@ body {
 }
 
 .fadeIn {
-  transform: translateY(-565px);
+  transform: translateY(-480px);
 }
 .fadeOut {
   transform: translateY(0);
@@ -194,8 +189,8 @@ body {
   width: 60%;
   color: rgb(186, 37, 24);
   font-family: "Big Shoulders", sans-serif;
-  font-size: 40px;
-  height: 70px;
+  font-size: 35px;
+  height: 60px;
   padding-top: 3px;
   font-weight: 900;
   text-transform: uppercase;
@@ -211,23 +206,23 @@ body {
 }
 .logo {
   font-family: "Big Shoulders", sans-serif;
-  font-size: 100px;
+  font-size: 86px;
   text-transform: uppercase;
   font-weight: 700;
 }
 .context {
-  font-size: 20px;
+  font-size: 17px;
   color: black;
   text-transform: uppercase;
   font-weight: 400;
   position: relative;
-  top: -20px;
+  top: -17px;
   left: 3px;
   font-family: "Big Shoulders", sans-serif;
 }
 
 .start-game:nth-child(2) {
-  margin-top: 50px;
+  margin-top: 40px;
   padding: 0 10px;
   font-family: sans-serif;
   text-transform: uppercase;
@@ -238,17 +233,17 @@ body {
   align-items: center;
   height: 40px;
   overflow: hidden;
-  gap: 20px;
+  gap: 15px;
 }
 
 ul {
   display: flex;
-  width: 200px;
+  width: 150px;
   flex-wrap: wrap;
   list-style: none;
   line-height: 0.8;
   gap: 10px;
-  font-size: 13px;
+  font-size: 10px;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -257,11 +252,11 @@ ul {
   color: rgb(168, 168, 168);
 }
 .times {
-  font-size: 32px;
+  font-size: 27px;
   font-weight: 600;
 }
 .content-game > div:nth-child(1) {
-  font-size: 30px;
+  font-size: 27px;
   font-weight: 600;
 }
 
@@ -269,7 +264,7 @@ ul {
   width: 100%;
   height: 110%;
   background: url("../assets/Layer\ 4.png") top/cover no-repeat;
-  margin-top: 40px;
+  margin-top: 20px;
   position: relative;
   border-radius: 30px;
 }
@@ -277,7 +272,7 @@ ul {
   width: 100%;
   height: 69%;
   padding: 20px;
-  padding-top: 75px;
+  padding-top: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -286,9 +281,8 @@ ul {
   width: 100%;
   height: 90%;
   display: grid;
-  grid-template-columns: repeat(8, 33px);
+  grid-template-columns: repeat(7, 33px);
   gap: 5px;
-  margin-left: 8px;
   grid-template-rows: repeat(8, 33px);
 }
 .items-grid {
@@ -321,8 +315,8 @@ ul {
   width: 50%;
   color: rgb(186, 37, 24);
   font-family: "Big Shoulders", sans-serif;
-  font-size: 30px;
-  height: 60px;
+  font-size: 25px;
+  height: 50px;
   padding-top: 3px;
   font-weight: 900;
   text-transform: uppercase;
@@ -349,12 +343,12 @@ ul {
   gap: 5px;
 }
 .texts1 {
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 900;
   transform: scale(1.1);
   text-align: center;
   color: black;
-  padding: 0 10px;
+  padding: 0 5px;
   text-transform: uppercase;
 }
 .items-grid.selected {
@@ -373,18 +367,28 @@ ul {
   gap: 20px;
 }
 .logos-section > a {
-  border: 4px solid white;
-  height: 60px;
-  width: 50%;
+  border: 2px solid white;
+  height: 50px;
+  width: 65%;
   color: white;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 25px;
   font-family: "Big Shoulders", sans-serif;
   text-transform: uppercase;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.logos-section > a:active{
-    transform: translateY(2px);
+.logos-section > a:active {
+  transform: translateY(2px);
+}
+
+.logo:nth-last-child(2) {
+  font-size: 83px;
+}
+.context:nth-child(2) {
+  font-size: 16px;
+}
+.image:nth-last-child(2){
+display: none;
 }
