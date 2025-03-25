@@ -83,7 +83,6 @@
     display: flex;
   }
   .end-game {
-    display: flex;
     flex-direction: row;
     gap: 24px;
   }
@@ -123,7 +122,7 @@
     height: 100%;
     width: 100%;
   }
-  .video{
+  .video {
     width: 400px;
     height: 800px;
   }
@@ -138,32 +137,32 @@
     width: 90%;
     margin: auto;
   }
-  .game{
+  .game {
     padding-top: 20px;
   }
   #forText {
     margin-bottom: 20px;
   }
-  .content-again{
-    width: 90%
-    ;
+  .content-again {
+    width: 90%;
     margin: auto;
   }
-  .image{
+  .image {
     padding-left: 0;
     justify-content: center;
   }
-  .bg-tel{
+  .bg-tel {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .game-grid{
+  .game-grid {
     grid-template-columns: repeat(7, 35px);
     grid-template-rows: repeat(8, 35px);
     justify-content: center;
+    user-select: auto;
   }
-  .display-game{
+  .display-game {
     height: 100%;
   }
   .image:nth-last-child(2) {

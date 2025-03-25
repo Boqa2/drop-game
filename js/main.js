@@ -27,17 +27,16 @@ video.addEventListener("canplaythrough", () => {
   }
   if (!hasPopupShown) {
     isSoundEnabled = !video.muted && video.volume > 0;
-
     setTimeout(() => {
       video.pause();
       popup.classList.add("show");
       if (popup.classList.contains("show")) {
         setTimeout(() => {
           popup.classList.remove("show");
-          video.muted = false;
-          video.play();
           video.volume = 1;
-        }, 5000);
+          video.muted = true;
+          video.play();
+        }, 4000);
       }
     }, 4400);
     hasPopupShown = true;
@@ -239,7 +238,7 @@ function checkWord() {
 array.forEach((elm) => {
   textFor.innerHTML += `<li id="words" class="">${elm}</li>`;
 });
-let time = 1;
+let time = 25;
 let gameInterval;
 
 function startGame() {
@@ -298,7 +297,7 @@ function endGame(win) {
     first.classList.add("hidden");
     first.style.display = "none";
     secondEle.style.display = "none";
-    therdEle.style.display = "block";
-    therdEle.classList.remove("hidden");
+    therdEle.style.display = "flex";
+    therdEle.classList.remove("hiddens");
   }, 0);
 }
