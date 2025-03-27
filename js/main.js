@@ -2,6 +2,7 @@ const video = document.querySelector("#video");
 const popup = document.getElementById("popup");
 const closePopup = document.getElementById("decline");
 const volumeOn = document.getElementById("accept");
+const btnMute = document.querySelector("#mute");
 
 const firstEle = document.querySelector("#starts");
 const gameStart = document.querySelector("#startGame");
@@ -18,8 +19,36 @@ const words = document.querySelectorAll("#words");
 let isSoundEnabled = false;
 let hasPopupShown = false;
 let hasVideoEnded = false;
+let noClick = false;
+let autoStartGame = false;
 
-video.muted = true;
+const firstsTF = firstEle.classList.contains("hidden");
+
+const supabaseUrl = "https://hzeopopayqbeihbqmxvm.supabase.co";
+const verticalVideo = `${supabaseUrl}/storage/v1/object/public/video/vertical.mp4`;
+const horizontalVideo = `${supabaseUrl}/storage/v1/object/public/video/horizontal.mp4`;
+function updateVideo() {
+  const isHorizontal = window.innerHeight <= 400;
+  const newSrc = isHorizontal ? horizontalVideo : verticalVideo;
+
+  if (video.src !== newSrc) {
+    const currentTime = video.currentTime;
+    video.src = newSrc;
+
+    video.addEventListener(
+      "loadedmetadata",
+      () => {
+        video.currentTime = currentTime;
+        video.play();
+      },
+      { once: true }
+    );
+  }
+}
+
+updateVideo();
+window.addEventListener("resize", updateVideo);
+
 video.play();
 video.addEventListener("canplaythrough", () => {
   if (!hasVideoEnded) {
@@ -32,10 +61,17 @@ video.addEventListener("canplaythrough", () => {
       popup.classList.add("show");
       if (popup.classList.contains("show")) {
         setTimeout(() => {
-          popup.classList.remove("show");
           video.volume = 1;
-          video.muted = true;
-          video.play();
+          if (!noClick) {
+            video.pause();
+            firstEle.classList.remove("hidden");
+            firstEle.classList.add("show");
+            popup.classList.remove("show");
+            autoStart();
+          } else {
+            popup.classList.remove("show");
+            video.play();
+          }
         }, 4000);
       }
     }, 4400);
@@ -43,14 +79,35 @@ video.addEventListener("canplaythrough", () => {
   }
 });
 
+function stopVideo() {
+  const stopVide = firstEle.classList.contains("hidden");
+  if (!stopVide) {
+    video.pause();
+    video.muted = true;
+  } else {
+    video.pause();
+    video.muted = true;
+  }
+}
 volumeOn.addEventListener("click", () => {
-  video.muted = false;
+  video.muted = true;
   video.volume = 1;
   video.play();
+  noClick = true;
   popup.classList.remove("show");
+  updateMuteIcon();
 });
 
 closePopup.addEventListener("click", closePopupFunc);
+btnMute.addEventListener("click", () => {
+  if (!video.muted) {
+    video.muted = true;
+  } else {
+    video.muted = false;
+  }
+  noClick = true;
+  updateMuteIcon();
+});
 
 function closePopupFunc() {
   popup.classList.remove("show");
@@ -59,7 +116,9 @@ function closePopupFunc() {
   if (isSoundEnabled) {
     video.muted = false;
     video.currentTime = 0;
+    mutes = false;
     video.pause();
+    updateMuteIcon();
   }
 
   if (hasVideoEnded) {
@@ -67,10 +126,30 @@ function closePopupFunc() {
   }
 }
 
+function updateMuteIcon() {
+  if (video.muted) {
+    btnMute.innerHTML = `<i class="bi bi-volume-mute-fill"></i>`;
+  } else {
+    btnMute.innerHTML = `<i class="bi bi-volume-up-fill"></i>`;
+  }
+}
+function autoStart() {
+  if (!firstEle.classList.contains("hidden")) {
+    setTimeout(() => {
+      if (!firstEle.classList.contains("hidden")) {
+        startGame();
+      } else {
+      }
+    }, 4000);
+  } else {
+  }
+}
 video.addEventListener("ended", () => {
   video.pause();
   firstEle.classList.remove("hidden");
   firstEle.classList.add("show");
+  stopVideo();
+  autoStart();
 });
 
 const array = ["poison", "killer", "meme", "drop", "phone"];
@@ -86,15 +165,6 @@ const directions = [
   { dx: 1, dy: -1 }, // Диагональ вверх вправо
   { dx: -1, dy: 1 }, // Диагональ вниз влево
 ];
-function resize() {
-  const height = window.innerHeight;
-  if (height < 400) {
-    video.src = "assets/15_Help_UPDR251511XH_DM.mp4";
-  } else {
-    video.src = "assets/15_HelpVertical_UPDR255086AH_DM.mp4";
-  }
-}
-resize();
 
 function placeWords() {
   array.forEach((word) => {
@@ -238,12 +308,12 @@ function checkWord() {
 array.forEach((elm) => {
   textFor.innerHTML += `<li id="words" class="">${elm}</li>`;
 });
-let time = 25;
+let time = 20;
 let gameInterval;
 
 function startGame() {
-  first.classList.add("fadeIn");
-  secondEle.classList.add("fadeIn");
+  first.style.display = "none";
+  secondEle.style.display = "flex";
 
   clearInterval(gameInterval);
   let timer = time;
@@ -264,11 +334,9 @@ function startGame() {
 }
 function restart() {
   startGame();
-  first.classList.add("fadeIN");
-  first.style.display = "flex";
+  first.style.display = "none";
   secondEle.style.display = "flex";
   therdEle.style.display = "none";
-  therdEle.classList.add("hiddens");
   scoreCount = 0;
   scoreEl.forEach((el) => {
     el.textContent = scoreCount;

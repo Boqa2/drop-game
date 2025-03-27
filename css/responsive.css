@@ -41,6 +41,7 @@
     flex-direction: row;
     justify-content: flex-start;
     gap: 30px;
+    padding: 0;
   }
   .content {
     order: 1;
@@ -58,7 +59,7 @@
     padding: 0;
     margin-top: 0px;
     justify-content: flex-start;
-    gap: 20px;
+    gap: 30px;
   }
   .content-game {
     margin-top: 10px;
@@ -70,7 +71,6 @@
   }
   .display-game {
     padding-top: 58px;
-    margin-left: 10px;
   }
   .game-grid {
     grid-template-rows: repeat(8, 28px);
