@@ -137,9 +137,6 @@
     width: 90%;
     margin: auto;
   }
-  .game {
-    padding-top: 20px;
-  }
   #forText {
     margin-bottom: 20px;
   }
@@ -167,7 +164,6 @@
   }
   .image:nth-last-child(2) {
     width: 100%;
-    display: none;
   }
   .notch {
     display: none;

@@ -220,6 +220,14 @@ function renderGrid() {
   });
 }
 
+function getTouchIndex(e) {
+  const touch = e.touches[0] || e.changedTouches[0];
+  const element = document.elementFromPoint(touch.clientX, touch.clientY);
+  if (element && element.classList.contains("items-grid")) {
+    return Number(element.dataset.index);
+  }
+  return null;
+}
 let selectedIndexes = [];
 let isSelecting = false;
 let startIndex = null;
@@ -249,6 +257,37 @@ place.addEventListener("mousemove", (e) => {
 });
 
 place.addEventListener("mouseup", () => {
+  checkWord();
+  isSelecting = false;
+});
+
+place.addEventListener("touchstart", (e) => {
+  const index = getTouchIndex(e);
+  if (index !== null) {
+    startIndex = index;
+    selectedIndexes = [startIndex];
+    document.querySelector(`[data-index="${index}"]`).classList.add("selected");
+    isSelecting = true;
+  }
+});
+
+place.addEventListener("touchmove", (e) => {
+  if (isSelecting) {
+    const index = getTouchIndex(e);
+    if (
+      index !== null &&
+      !selectedIndexes.includes(index) &&
+      isValidSelection(startIndex, index)
+    ) {
+      selectedIndexes.push(index);
+      document
+        .querySelector(`[data-index="${index}"]`)
+        .classList.add("selected");
+    }
+  }
+});
+
+place.addEventListener("touchend", () => {
   checkWord();
   isSelecting = false;
 });
